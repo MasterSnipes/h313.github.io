@@ -11,8 +11,8 @@
   </head>
   <body ng-controller="TerminalController">
     <div ng-bind-html="output"></div>
-    <form ng-submit="update()">
-      <p><span class="green">> </span><input type="text" ng-bind="command" style="width:90%;" autofocus></p>
+    <form>
+      <p><span class="green">> </span><input type="text" ng-bind="command" ng-keypress="update($event)" style="width:90%;" autofocus></p>
     </form>
   </body>
 </html>

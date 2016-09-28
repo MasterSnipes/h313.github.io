@@ -14,10 +14,10 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
       }
     }
     else if($scope.command === "cat projects.txt") {
-      $scope.output = $sce.trustAsHtml( $scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p><a class="red" href="https://h313.github.io/KarlMarkov/">Karl Markov</a></p><p><a class="red" href="https://h313.github.io/SirMarkov/">Sir Markov</a></p><p><a class="red" href="https://h313.github.io/redirekt/">Redirekt</a></p><p><a class="red" href="https://h313.github.io/nodeChat/">nodeChat</a></p><p><a class="red" href="https://h313.github.io/club-charterhelper/">club-charterhelper</a></p><p><a class="red" href="https://github.com/jsCompress/">jsCompress</a></p><p><a class="red" href="https://h313.github.io/wcec-em/">WCEC</a></p>');
+      $scope.output = $sce.trustAsHtml( $scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p><a class="red" href="https://h313.github.io/KarlMarkov/">Karl Markov</a></p><p><a class="red" href="https://h313.github.io/SirMarkov/">Sir Markov</a></p><p><a class="red" href="https://h313.github.io/redirekt/">Redirekt</a></p><p><a class="red" href="https://h313.github.io/nodeChat/">nodeChat</a></p><p><a class="red" href="https://h313.github.io/club-charterhelper/">club-charterhelper</a></p><p><a class="red" href="https://github.com/h313/jsCompress/">jsCompress</a></p><p><a class="red" href="https://h313.github.io/wcec-em/">WCEC</a></p>');
     }
     else {
-      $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>unkown command</p>');
+      $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>unknown command</p>');
     }
     $scope.command = "";
   };

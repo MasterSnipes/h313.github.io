@@ -12,7 +12,7 @@
   <body ng-controller="TerminalController">
     <div ng-bind-html="output"></div>
     <form ng-submit="update()">
-      <input type="text" ng-bind="input">
+      <p><span class="green">> </span><input type="text" ng-bind="command" style="width:90%;" autofocus></p>
     </form>
   </body>
 </html>

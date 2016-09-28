@@ -1,0 +1,18 @@
+<html lang="en" ng-app="terminalApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Some guy's website</title>
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/terminalApp.js"></script>
+
+    <link rel="stylesheet" href="css/code.css">
+  </head>
+  <body ng-controller="TerminalController">
+    <div ng-bind-html="output"></div>
+    <form ng-submit="update()">
+      <input type="text" ng-bind="input">
+    </form>
+  </body>
+</html>

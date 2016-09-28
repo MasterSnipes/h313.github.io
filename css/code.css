@@ -1,0 +1,51 @@
+body {
+  background-color: #1C1F27;
+}
+
+p {
+  font-family: monospace;
+  font-size: 16px;
+  margin: 0.3em;
+  color: #979CAC;
+}
+
+.tab {
+  padding-left: 2ch;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+.grey {
+  color: #4F4F4F;
+}
+.red {
+  color: #AF4B57;
+}
+.string {
+  color: #AFD383;
+}
+.method {
+  color: #E5C079;
+}
+.blue {
+  color: #7D90A4;
+}
+.object {
+  color: #A4799D;
+}
+.grey-blue {
+  color: #85A6A5;
+}
+.white {
+  color: #EEEDEE;
+}
+
+input[type=text] {
+   background-color: #1C1F27;
+   color: #979CAC;
+   border: none;
+   font-family: monospace;
+   font-size: 16px;
+}

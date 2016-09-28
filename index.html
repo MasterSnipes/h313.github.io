@@ -11,6 +11,8 @@
   </head>
   <body ng-controller="TerminalController">
     <div ng-bind-html="output"></div>
-    <p><span class="green">> </span><input type="text" ng-bind="command" ng-keyup="$event.keyCode == 13 ? update() : null" style="width:90%;" autofocus></p>
+    <form ng-submit="update()">
+      <p><span class="green">> </span><input type="text" ng-bind="command" ng-keyup="$event.keyCode == 13 ? update() : null" style="width:90%;" autofocus></p>
+    </form>
   </body>
 </html>

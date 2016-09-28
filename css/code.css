@@ -46,6 +46,7 @@ input[type=text] {
    background-color: #1C1F27;
    color: #979CAC;
    border: none;
+   outline: none;
    font-family: monospace;
    font-size: 16px;
 }

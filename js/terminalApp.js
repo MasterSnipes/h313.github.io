@@ -16,9 +16,6 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
     else if($scope.command === "cat projects") {
       $scope.output = $sce.trustAsHtml('<p><a class="red" href="https://h313.github.io/KarlMarkov/">Karl Markov</a></p><p><a class="red" href="https://h313.github.io/SirMarkov/">Sir Markov</a></p>');
     }
-    else {
-      $scope.output = $sce.trustAsHtml('<p>command not recognized</p>');
-    }
     $scope.command = "";
   };
 });

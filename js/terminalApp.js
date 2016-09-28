@@ -8,10 +8,10 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
       if($scope.command === "help") {
         $scope.output = $sce.trustAsHtml('<p><span class="green">ls</span></p>');
       }
-      if($scope.command === "ls") {
+      else if($scope.command === "ls") {
         $scope.output = $sce.trustAsHtml('<p>projects</p>');
       }
-      if($scope.command === "cat projects") {
+      else if($scope.command === "cat projects") {
         $scope.output = $sce.trustAsHtml('<p><a class="red" href="https://h313.github.io/KarlMarkov/">Karl Markov</a></p><p><a class="red" href="https://h313.github.io/SirMarkov/">Sir Markov</a></p>');
       }
       $scope.command = "";

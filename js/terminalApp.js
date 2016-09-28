@@ -10,11 +10,14 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
     }
     else if($scope.command === "ls") {
       if(loc === 0) {
-        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>projects</p>');
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>projects.txt</p>');
       }
     }
-    else if($scope.command === "cat projects") {
-      $scope.output = $sce.trustAsHtml( $scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p><a class="red" href="https://h313.github.io/KarlMarkov/">Karl Markov</a></p><p><a class="red" href="https://h313.github.io/SirMarkov/">Sir Markov</a></p><p><a class="red" href="https://h313.github.io/redirekt/">Redirekt</a></p><p><a class="red" href="https://h313.github.io/nodeChat/">nodeChat</a></p>');
+    else if($scope.command === "cat projects.txt") {
+      $scope.output = $sce.trustAsHtml( $scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p><a class="red" href="https://h313.github.io/KarlMarkov/">Karl Markov</a></p><p><a class="red" href="https://h313.github.io/SirMarkov/">Sir Markov</a></p><p><a class="red" href="https://h313.github.io/redirekt/">Redirekt</a></p><p><a class="red" href="https://h313.github.io/nodeChat/">nodeChat</a></p><p><a class="red" href="https://h313.github.io/club-charterhelper/">club-charterhelper</a></p><p><a class="red" href="https://github.com/jsCompress/">jsCompress</a></p><p><a class="red" href="https://h313.github.io/wcec-em/">WCEC</a></p>');
+    }
+    else {
+      $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>unkown command</p>');
     }
     $scope.command = "";
   };

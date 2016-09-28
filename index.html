@@ -11,9 +11,6 @@
   </head>
   <body ng-controller="TerminalController">
     <div ng-bind-html="output"></div>
-    {{command}}
-    <form>
-      <p><span class="green">> </span><input type="text" ng-bind="command" ng-keypress="($event.which === 13)?update():0" style="width:90%;" autofocus></p>
-    </form>
+    <p><span class="green">> </span><input type="text" ng-bind="command" ng-keypress="($event.which === 13)?update():0" style="width:90%;" autofocus></p>
   </body>
 </html>

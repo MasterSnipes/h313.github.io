@@ -14,42 +14,44 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
   $scope.output = $sce.trustAsHtml('<p>ARCH-4.7.1.1</p><p>Use <span class="green">help</span> for commands</p>');
   var loc = 0;
   $scope.update = function() {
-    if($scope.command === "help") {
-      $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="green">ls</p><p class="green">cat</p>');
-    }
-    else if($scope.command === "ls") {
-      if(loc === 0) {
+    if(loc === 0) {
+      if($scope.command === "help") {
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="green">ls</p><p class="green">cat</p>');
+      }
+      else if($scope.command === "ls") {
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>projects</p>');
       }
-      else if(loc === 1) {
+      else if($scope.command === "cd .." || $scope.command === "cd ../") {
+          $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>access denied. nice try tho!</p>');
+      }
+      else if($scope.command === "cd projects") {
+        $scope.output= $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>');
+        loc = 1;
+      }
+      else {
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="blue">error</p>');
+      }
+    }
+    else if(loc === 1) {
+      if($scope.command === "help") {
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="green">ls</p><p class="green">cat</p>');
+      }
+      else if($scope.command === "ls") {
         var list = '';
         for(var i = 0; i < listProjects.length; i++) {
           list += '<p class="red"><a href="' + listProjects[i].url + '">' + listProjects[i].name + '</a></p>'
         }
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + list);
       }
-    }
-    else if($scope.command === "cd projects") {
-      if(loc === 0) {
-        $scope.output= $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>');
-        loc = 1;
-      }
-      else {
-        $scope.output= $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>no such folder</p>');
-      }
-    }
-    else if($scope.command === "cd .." || $scope.command === "cd ../") {
-      if(loc === 0) {
-        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>access denied</p>');
-      }
-      else if(loc == 1) {
+      else if($scope.command === "cd .." || $scope.command === "cd ../") {
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>');
         loc = 0;
       }
+      else {
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="blue">error</p>');
+      }
     }
-    else {
-      $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>unknown command</p>');
-    }
+
     $scope.command = "";
     $location.hash('cmd');
     $anchorScroll();

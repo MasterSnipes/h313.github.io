@@ -63,17 +63,15 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
         }
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + list);
       }
-      else if($scope.command === "cat github") {
-        $window.open('https://github.com/h313', '_blank');
-      }
-      else if($scope.command === "cat facebook") {
-        $window.open('https://www.facebook.com/haoda.wang.71', '_blank');
-      }
-      else if($scope.command === "cat tumblr") {
-        $window.open('https://andyetitcompiles.tumblr.com/', '_blank');
-      }
-      else if($scope.command === "cat steam") {
-        $window.open('http://steamcommunity.com/id/h313', '_blank');
+      else if($scope.command.substring(0,3) == "cat") {
+        var temp = $scope.command.slice(3);
+        for(int i = 0; i < listSocial.length; i++) {
+          if(listSocial[i].name == temp) {
+            temp = listSocial[i].url;
+            break;
+          }
+        }
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p><p><a class="orange" href="' + temp + '">' + temp + "</a></p>");
       }
       else if($scope.command === "cd .." || $scope.command === "cd ../") {
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>');

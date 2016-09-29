@@ -65,7 +65,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
       }
       else if($scope.command.substring(0,3) == "cat") {
         var temp = $scope.command.slice(3);
-        for(int i = 0; i < listSocial.length; i++) {
+        for(var i = 0; i < listSocial.length; i++) {
           if(listSocial[i].name == temp) {
             temp = listSocial[i].url;
             break;

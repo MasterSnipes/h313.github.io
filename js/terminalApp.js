@@ -30,7 +30,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>access denied</p>');
       }
       else if(loc == 1) {
-        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>'$scope.command + '</p>')
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>'$scope.command + '</p>');
         loc = 0;
       }
     }

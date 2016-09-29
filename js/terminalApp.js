@@ -38,6 +38,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
       $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>unknown command</p>');
     }
     $scope.command = "";
-    angular.element(document.querySelector('#cmd')).scrollIntoView();
+    $location.hash('cmd');
+    $anchorScroll();
   };
 });

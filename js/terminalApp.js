@@ -58,7 +58,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
     else if(loc === 2) {
       if($scope.command === "ls") {
         var list = '';
-        for(var i = 0; i < listProjects.length; i++) {
+        for(var i = 0; i < listSocial.length; i++) {
           list += '<p class="red"><a href="' + listSocial[i].url + '">' + listSocial[i].name + '</a></p>'
         }
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + list);

@@ -10,15 +10,34 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
     }
     else if($scope.command === "ls") {
       if(loc === 0) {
-        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>projects.txt</p>');
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>projects</p>');
+      }
+      else if(loc === 1) {
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p><a class="red" href="https://h313.github.io/KarlMarkov/">karlMarkov</a></p><p><a class="red" href="https://h313.github.io/SirMarkov/">sirMarkov</a></p><p><a class="red" href="https://h313.github.io/redirekt/">redirekt</a></p><p><a class="red" href="https://h313.github.io/nodeChat/">nodeChat</a></p><p><a class="red" href="https://h313.github.io/club-charterhelper/">club-charterhelper</a></p><p><a class="red" href="https://github.com/h313/jsCompress/">jsCompress</a></p><p><a class="red" href="https://github.com/h313/jsCompress/">Blue Hen Treats</a></p><p><a class="red" href="https://h313.github.io/wcec-em/">wcec</a></p>');
       }
     }
-    else if($scope.command === "cat projects.txt") {
-      $scope.output = $sce.trustAsHtml( $scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p><a class="red" href="https://h313.github.io/KarlMarkov/">Karl Markov</a></p><p><a class="red" href="https://h313.github.io/SirMarkov/">Sir Markov</a></p><p><a class="red" href="https://h313.github.io/redirekt/">Redirekt</a></p><p><a class="red" href="https://h313.github.io/nodeChat/">nodeChat</a></p><p><a class="red" href="https://h313.github.io/club-charterhelper/">club-charterhelper</a></p><p><a class="red" href="https://github.com/h313/jsCompress/">jsCompress</a></p><p><a class="red" href="https://h313.github.io/wcec-em/">WCEC</a></p>');
+    else if($scope.command === "cd projects") {
+      if(loc === 0) {
+        $scope.output= $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>');
+        loc = 1;
+      }
+      else {
+        $scope.output= $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>no such folder</p>');
+      }
+    }
+    else if($scope.command === "cd .." || $scope.command === "cd ../") {
+      if(loc === 0) {
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>access denied</p>');
+      }
+      else if(loc == 1) {
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>'$scope.command + '</p>')
+        loc = 0;
+      }
     }
     else {
       $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>unknown command</p>');
     }
     $scope.command = "";
+      id("cmd").scrollIntoView();
   };
 });

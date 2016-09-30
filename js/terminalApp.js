@@ -65,13 +65,14 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
       }
       else if($scope.command.substring(0,3) == "cat") {
         var temp = $scope.command.slice(3);
+        var tempInt = 0;
         for(var i = 0; i < listSocial.length; i++) {
           if(listSocial[i].name == temp) {
-            temp = listSocial[i].url;
+            tempInt = i;
             break;
           }
         }
-        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p><p><a class="orange" href="' + temp + '">' + temp + "</a></p>");
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p><p><a class="orange" href="' + listSocial[tempInt].url + '">' + listSocial[tempInt].name + "</a></p>");
       }
       else if($scope.command === "cd .." || $scope.command === "cd ../") {
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>');

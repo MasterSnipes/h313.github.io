@@ -59,7 +59,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
             break;
           }
         }
-        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p><p><a class="orange" href="' + listProjects[tempInt].url + '">' + listSocial[tempInt].desc + "</a></p>");
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p><p><a class="orange" href="' + listProjects[tempInt].url + '">' + listProjects[tempInt].desc + "</a></p>");
       }
       else {
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="blue">error</p>');

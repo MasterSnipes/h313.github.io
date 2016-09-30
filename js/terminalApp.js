@@ -18,7 +18,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
   var loc = 0;
   $scope.update = function() {
     if($scope.command === "help") {
-      $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="green">ls</p><p class="green">cat</p>');
+      $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="green">cd</p><p class="green">ls</p><p class="green">cat</p><p class="green">help</p>');
     }
     else if(loc === 0) {
       if($scope.command === "ls") {
@@ -51,6 +51,16 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>');
         loc = 0;
       }
+      else if($scope.command.substring(0,3) == "cat") {
+        var tempInt = 0;
+        for(var i = 0; i < listSocial.length; i++) {
+          if(listProjects[i].name == $scope.command.slice(3)) {
+            tempInt = i;
+            break;
+          }
+        }
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p><p><a class="orange" href="' + listProjects[tempInt].url + '">' + listSocial[tempInt].desc + "</a></p>");
+      }
       else {
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="blue">error</p>');
       }
@@ -64,10 +74,9 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + list);
       }
       else if($scope.command.substring(0,3) == "cat") {
-        var temp = $scope.command.slice(3);
         var tempInt = 0;
         for(var i = 0; i < listSocial.length; i++) {
-          if(listSocial[i].name == temp) {
+          if(listSocial[i].name == $scope.command.slice(3)) {
             tempInt = i;
             break;
           }

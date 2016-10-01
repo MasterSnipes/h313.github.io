@@ -9,7 +9,7 @@ var listProjects = [{name: 'karlMarkov', url: 'https://h313.github.io/KarlMarkov
                     {name: 'wcec', url: 'https://h313.github.io/wcec-em', desc: 'Wilmington Community Evangelical Church'}];
 var listSocial = [{name: 'github', url: 'https://github.com/h313'},
                   {name: 'facebook', url: 'https://www.facebook.com/haoda.wang.71'},
-                  {name: 'tumblr', url: 'https://andyetitcompiles.tumblr.com/'},
+                  {name: 'tumblr', url: 'https://sadbadlines.tumblr.com/'},
                   {name: 'steam', url: 'http://steamcommunity.com/id/h313'}];
 
 terminalApp.controller('TerminalController', function TerminalController($scope, $sce, $location, $anchorScroll, $window){

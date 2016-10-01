@@ -13,7 +13,7 @@ var listSocial = [{name: 'github', url: 'https://github.com/h313'},
                   {name: 'steam', url: 'http://steamcommunity.com/id/h313'},
                   {name: 'email', url: 'mailto:arandomawesomegeek@gmail.com'}];
 
-var about = "Hello. I make things. With lots of typing. And tears. Please don't make me sad.";
+var about = 'Hello. I make things. With lots of typing. And tears. Please dont make me sad.';
 
 terminalApp.controller('TerminalController', function TerminalController($scope, $sce, $location, $anchorScroll, $window){
   $scope.command = "help";

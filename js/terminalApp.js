@@ -39,7 +39,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
         loc = 2;
       }
       else if($scope.command === "cat about") {
-        $scope.output == $sce.trustAsHtml($scope.output + about + '<p><span class="green">> </span>' + $scope.command + '</p>');
+        $scope.output == $sce.trustAsHtml($scope.output + '<p class="orange">' + about + '</p><p><span class="green">> </span>' + $scope.command + '</p>');
       }
       else {
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="blue">error</p>');

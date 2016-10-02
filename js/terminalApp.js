@@ -25,7 +25,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
     }
     else if(loc === 0) {
       if($scope.command === "ls") {
-        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>projects</p><p>connect</p><p class="red">about</p>');
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>projects</p><p>connect</p><p class="grey-blue">about</p>');
       }
       else if($scope.command === "cd .." || $scope.command === "cd ../") {
           $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>access denied. nice try tho!</p>');
@@ -49,7 +49,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
       if($scope.command === "ls") {
         var list = '';
         for(var i = 0; i < listProjects.length; i++) {
-          list += '<p class="red"><a href="' + listProjects[i].url + '">' + listProjects[i].name + '</a></p>'
+          list += '<p class="grey-blue"><a href="' + listProjects[i].url + '">' + listProjects[i].name + '</a></p>'
         }
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + list);
       }
@@ -60,7 +60,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
       else if($scope.command.substring(0,3) == "cat") {
         var tempInt = 0;
         for(var i = 0; i < listSocial.length; i++) {
-          if(listProjects[i].name == $scope.command.slice(3)) {
+          if(listProjects[i].name == $scope.command.slice(4)) {
             tempInt = i;
             break;
           }
@@ -75,14 +75,14 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
       if($scope.command === "ls") {
         var list = '';
         for(var i = 0; i < listSocial.length; i++) {
-          list += '<p class="red"><a href="' + listSocial[i].url + '">' + listSocial[i].name + '</a></p>'
+          list += '<p class="grey-blue"><a href="' + listSocial[i].url + '">' + listSocial[i].name + '</a></p>'
         }
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + list);
       }
       else if($scope.command.substring(0,3) == "cat") {
         var tempInt = 0;
         for(var i = 0; i < listSocial.length; i++) {
-          if(listSocial[i].name == $scope.command.slice(3)) {
+          if(listSocial[i].name == $scope.command.slice(4)) {
             tempInt = i;
             break;
           }

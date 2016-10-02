@@ -25,7 +25,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
     }
     else if(loc === 0) {
       if($scope.command === "ls") {
-        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>projects</p><p>connect</p><p class="grey-blue">about</p>');
+        $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>projects</p><p>connect</p><p class="blue">about</p>');
       }
       else if($scope.command === "cd .." || $scope.command === "cd ../") {
           $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p>access denied. nice try tho!</p>');
@@ -39,7 +39,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
         loc = 2;
       }
       else if($scope.command === "cat about") {
-        $scope.output == $sce.trustAsHtml($scope.output + '<p class="orange">' + about + '</p><p><span class="green">> </span>' + $scope.command + '</p>');
+        $scope.output = $sce.trustAsHtml($scope.output + '<p class="orange">' + about + '</p><p><span class="green">> </span>' + $scope.command + '</p>');
       }
       else {
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="blue">error</p>');
@@ -49,7 +49,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
       if($scope.command === "ls") {
         var list = '';
         for(var i = 0; i < listProjects.length; i++) {
-          list += '<p class="grey-blue"><a href="' + listProjects[i].url + '">' + listProjects[i].name + '</a></p>'
+          list += '<p><a href="' + listProjects[i].url + '"  class="blue-grey">' + listProjects[i].name + '</a></p>'
         }
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + list);
       }
@@ -75,7 +75,7 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
       if($scope.command === "ls") {
         var list = '';
         for(var i = 0; i < listSocial.length; i++) {
-          list += '<p class="grey-blue"><a href="' + listSocial[i].url + '">' + listSocial[i].name + '</a></p>'
+          list += '<p><a href="' + listSocial[i].url + '" class="blue-grey">' + listSocial[i].name + '</a></p>'
         }
         $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + list);
       }

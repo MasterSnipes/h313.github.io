@@ -21,7 +21,10 @@ terminalApp.controller('TerminalController', function TerminalController($scope,
   var loc = 0;
   $scope.update = function() {
     if($scope.command === "help") {
-      $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="green">cd</p><p class="green">ls</p><p class="green">cat</p><p class="green">help</p>');
+      $scope.output = $sce.trustAsHtml($scope.output + '<p><span class="green">> </span>' + $scope.command + '</p>' + '<p class="green">cd</p><p class="green">ls</p><p class="green">cat</p><p class="green">help</p><p class="green">clear</p>');
+    }
+    else if($scope.command === "clear") {
+      $scope.output = "";
     }
     else if(loc === 0) {
       if($scope.command === "ls") {
